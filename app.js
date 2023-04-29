@@ -3,7 +3,39 @@ App({
   onLaunch: function () {
      const token = new Token()
      token.verify()
-  }
+     //让用户默认登录，(可以在登录前判断token是否存在并且不过期，如果是的话就不用再登录)
+    //  this.loginAction()
+  },
+  // loginAction(){
+  //   //获取code
+  //   wx.login({
+  //     timeout:1000,
+  //     success:res=>{
+  //       console.log('wxlogincode',res.code)
+  //       if (res.code) {
+  //         wx.request({
+  //           url: 'http://localhost:3000/v1/token',
+  //           method: 'POST',
+  //           data: {
+  //             account: res.code,
+  //             type: 100,
+  //           },
+  //           success: res => {
+  //             console.log('获取openid',res)
+  //             const code = res.statusCode.toString()
+  //             if (code.startsWith('2')) {
+  //               wx.setStorageSync('token', res.data.token)
+  //             }
+  //           }
+  //         })
+  //       }
+  //     },
+  //     fail:err=>{
+  //       console.log(err)
+  //     }
+  //   })
+  //   //将code发送给服务器
+  // }
 })
 
 //主题 渐进式  核心主要

@@ -1,6 +1,7 @@
 <view class="container">
     <image src="/images/my/my@bg.png" class="bg"></image>
     <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"/> -->
+    <!-- <v-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bindtap="getUserInfo1"> -->
     <v-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getuserinfo="onGetUserInfo">
         <image slot="img" class="avatar" src="/images/my/my.png" />
     </v-button>

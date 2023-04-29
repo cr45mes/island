@@ -1,0 +1,4 @@
+<!--pages/movie/movie.wxml-->
+<text>pages/movie/movie.wxmlddd</text>
+<button bindtap="dianji">点击</button>
+<button  bindtap="getUserProfile"> 获取头像昵称11 </button>

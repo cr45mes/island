@@ -6,7 +6,9 @@
     "pages/book-detail/book-detail",
     "pages/about/about",
     "pages/course/course",
-    "pages/classic-detail/classic-detail"
+    "pages/classic-detail/classic-detail",
+    "pages/movie/movie",
+    "pages/music/music"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -32,6 +34,18 @@
         "selectedIconPath": "/images/tab/book@highlight.png",
         "iconPath": "/images/tab/book.png",
         "text": "书籍"
+      },
+      {
+        "pagePath": "pages/movie/movie",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "iconPath": "/images/tab/book.png",
+        "text": "电影"
+      },
+      {
+        "pagePath": "pages/music/music",
+        "selectedIconPath": "/images/tab/book@highlight.png",
+        "iconPath": "/images/tab/book.png",
+        "text": "音乐"
       },
       {
         "pagePath": "pages/my/my",

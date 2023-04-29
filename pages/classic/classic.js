@@ -36,6 +36,25 @@ Component({
      */
 
     attached(options) {
+      // wx.showModal({
+      //   title: '登录',
+      //   content: '将获取用户信息，请点击确认',
+      //   success (res) {
+      //     if (res.confirm) {
+      //       console.log('用户点击确定')
+      //       // wx.getUserProfile({
+      //       //   desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      //       //   success: (res) => {
+      //       //     console.log(res)
+                
+      //       //   }
+      //       // })
+      //     } else if (res.cancel) {
+      //       console.log('用户点击取消')
+      //     }
+      //   }
+      // })
+      
         const cid = this.properties.cid
         console.log(cid,type)
         const type = this.properties.type

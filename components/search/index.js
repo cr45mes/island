@@ -72,6 +72,12 @@ Component({
             this.unLocked()
           })
         // 死锁
+      }else{
+        wx.showToast({
+          title: '没有更多了',
+          icon:'error'
+        })
+        
       }
     },
 

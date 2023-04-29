@@ -15,14 +15,18 @@ class Token {
   verify() {
     var token = wx.getStorageSync('token');
     if (!token) {
+      console.log('不存在')
       this.getTokenFromServer();
     } else {
+      console.log('存在')
       this._veirfyFromServer(token);
     }
   }
 
   _veirfyFromServer(token) {
+    
     var that = this;
+    console.log('aa',this.verifyUrl)
     wx.request({
       url: that.verifyUrl,
       method: 'POST',
@@ -30,7 +34,7 @@ class Token {
         token: token
       },
       success: function(res) {
-        console.log(res)
+        console.log('aaa',res)
         var valid = res.data.isValid;
         if (!valid) {
           that.getTokenFromServer();
@@ -52,7 +56,7 @@ class Token {
           },
           success: function(res) {
             wx.setStorageSync('token', res.data.token);
-            console.log(res)
+            // console.log(res)
             callBack && callBack(res.data.token);
           }
         })

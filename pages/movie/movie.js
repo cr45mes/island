@@ -1,4 +1,12 @@
 // pages/movie/movie.js
+
+import {
+  MovieModel
+} from '../../models/movie.js'
+
+
+const movieModel = new MovieModel()
+
 Page({
 
   /**
@@ -8,13 +16,27 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
+    showWhat:'hot',
+    hotMovie:[],
+    dramaMovie:[],
+    actionMovie:[],
+    scifiMovie:[],
+    comedyMovie:[]
   },
-
+  changeTabs(e){
+    console.log(e.detail.activeKey)
+    this.setData({showWhat:e.detail.activeKey})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad: function (optins) {
+    movieModel.getDramaMovieList()
+      .then(res => {
+        console.log(res)
+        this.setData({dramaMovie:res})
+      })
+    // id
   },
 
   /**

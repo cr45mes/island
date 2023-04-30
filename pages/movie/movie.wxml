@@ -1,4 +1,24 @@
 <!--pages/movie/movie.wxml-->
-<text>pages/movie/movie.wxmlddd</text>
-<button bindtap="dianji">点击</button>
-<button  bindtap="getUserProfile"> 获取头像昵称11 </button>
+<l-segment bind:linchange="changeTabs">
+        <l-segment-item tab="精选" key="hot" />
+        <l-segment-item tab="剧情" key="drama" />
+        <l-segment-item tab="科幻" key="scifi" />
+        <l-segment-item tab="喜剧" key="comedy" />
+        <l-segment-item tab="动作" key="action" />
+</l-segment> 
+<view wx:if="{{showWhat=='hot'}}">
+<v-movie movie="{{dramaMovie}}"></v-movie>
+</view>
+<view wx:if="{{showWhat=='drama'}}">
+剧情
+</view>
+<view wx:if="{{showWhat=='scifi'}}">
+科幻
+</view>
+<view wx:if="{{showWhat=='comedy'}}">
+喜剧
+</view>
+<view wx:if="{{showWhat=='action'}}">
+动作
+</view>
+

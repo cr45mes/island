@@ -23,6 +23,7 @@ Component({
    */
   methods: {
     onTap(event){
+      console.log('dian',this.properties.book)
       const bid = this.properties.book.id
       wx.navigateTo({
         url:`/pages/book-detail/book-detail?bid=${bid}`

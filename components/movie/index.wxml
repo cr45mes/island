@@ -1,10 +1,7 @@
-<block wx:if="{{showLoading}}">
-    <view class="loading">玩命加载中…</view>
-</block>
-<block wx:else>
-    <view class="film">
-        <block wx:for="{{movie}}" wx:for-index="index" wx:for-item="movie" wx:key="index">
-            <view data-id="{{movie.id}}" class="film-item" catchtap="viewFilmDetail">
+
+    <view >
+        <!-- <block wx:for="{{movie}}" wx:for-index="index" wx:for-item="movie" wx:key="index"> -->
+            <view data-id="{{movie.id}}" class="film-item" bind:tap="onTap">
                 <view class="film-cover">
                     <image src="{{movie.image}}" class="film-cover-img"></image>
                     <view class="film-rating">
@@ -20,12 +17,8 @@
                     <view class="film-title">{{movie.title}}</view>
                 </view>
             </view>
-        </block>
-        <block wx:if="{{hasMore}}">
-            <view class="loading-tip">拼命加载中…</view>
-        </block>
-        <block wx:else>
-            <view class="loading-tip">没有更多内容了</view>
-        </block>
+        <!-- </block> -->
+        
+
     </view>
-</block>
+

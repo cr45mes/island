@@ -8,7 +8,18 @@
     "pages/course/course",
     "pages/classic-detail/classic-detail",
     "pages/movie/movie",
-    "pages/music/music"
+    "pages/music/music",
+    "pages/detail-song/detail-song",
+    "pages/movie-detail/movie-detail"
+  ],
+  "subPackages": [
+    {
+      "root": "packagePlayer",
+      "name": "player",
+      "pages": [
+        "pages/music-player/music-player"
+      ]
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

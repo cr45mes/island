@@ -20,11 +20,11 @@
 
   <view class="operation">
     <view class="favor item">
-      <image class="icon" mode="widthFix" src="/assets/images/icons/favor_icon.png"></image>
+      <image class="icon" mode="widthFix" src="/images/icon/favor_icon.png"></image>
       <text class="text">{{fmt.formatCount(songInfo.subscribedCount)}}</text>
     </view>
     <view class="share item">
-      <image class="icon" mode="widthFix" src="/assets/images/icons/share_icon.png"></image>
+      <image class="icon" mode="widthFix" src="/images/icon/share_icon.png"></image>
       <text class="text">分享</text>
     </view>
   </view>

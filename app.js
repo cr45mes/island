@@ -1,6 +1,21 @@
 import {Token} from '/models/token.js'
 App({
+  globalData: {
+    screenWidth: 375,
+    screenHeight: 667,
+    statusHeight: 20,
+    contentHeight: 500
+  },
   onLaunch: function () {
+    // 1.获取设备的信息
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.screenWidth = res.screenWidth
+        this.globalData.screenHeight = res.screenHeight
+        this.globalData.statusHeight = res.statusBarHeight
+        this.globalData.contentHeight = res.screenHeight - res.statusBarHeight - 44
+      },
+    })
      const token = new Token()
      token.verify()
      //让用户默认登录，(可以在登录前判断token是否存在并且不过期，如果是的话就不用再登录)

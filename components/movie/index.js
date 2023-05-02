@@ -19,10 +19,16 @@ Component({
    */
   methods: {
     onTap(event){
-      const bid = this.properties.book.id
+      // const bid = this.properties.book.id
+      // wx.navigateTo({
+      //   url:`/pages/book-detail/book-detail?bid=${bid}`
+      // }) 
+      console.log('被点到了',this.properties.movie)
+
+      const mid = this.properties.movie.id
       wx.navigateTo({
-        url:`/pages/book-detail/book-detail?bid=${bid}`
-      }) 
+        url: `/pages/movie-detail/movie-detail?mid=${mid}`,
+      })
     }
 
   }

@@ -16,7 +16,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
-    showWhat:'hot',
+    showWhat:'drama',
     hotMovie:[],
     dramaMovie:[],
     actionMovie:[],
@@ -35,6 +35,21 @@ Page({
       .then(res => {
         console.log(res)
         this.setData({dramaMovie:res})
+      })
+    movieModel.getScifiMovieList()
+      .then(res => {
+        console.log(res)
+        this.setData({scifiMovie:res})
+      })
+    movieModel.getActionMovieList()
+      .then(res => {
+        console.log(res)
+        this.setData({actionMovie:res})
+      })
+    movieModel.getComedyMovieList()
+      .then(res => {
+        console.log(res)
+        this.setData({comedyMovie:res})
       })
     // id
   },

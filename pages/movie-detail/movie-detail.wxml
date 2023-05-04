@@ -1,3 +1,4 @@
+<wxs src="../../util/filter.wxs" module="util" />
 <view class="container">
     <block wx:if="{{showLoading}}">
         <view class="loading">玩命加载中…</view>
@@ -52,11 +53,11 @@
         <view class="fd-bd">
             <view class="fd-bd-title">剧情简介</view>
             <view class="fd-bd-intro" style="white-space: pre-wrap"><rich-text nodes="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{filmDetail.summary}}"></rich-text></view>
+            
+            
             <view class="fd-bd-title">电影详情</view>
             <view class="fd-bd-intro">导演：{{filmDetail.directors}}</view>
-            <view class="fd-bd-intro">演员：{{filmDetail.casts}}
-                   
-            </view>
+            <view class="fd-bd-intro">演员：{{filmDetail.casts}}</view>
             <view class="fd-bd-intro">豆瓣评分：
                     <block wx:if="{{filmDetail.rating == 0}}">
                         暂无评分
@@ -66,23 +67,19 @@
                     </block>
             </view>
             <view class="fd-bd-intro">上映年份：{{filmDetail.year}}年</view>
-            <!-- <view class="fd-bd-title">导演/演员</view>
-            <view class="fd-bd-person">
-                <view class="fd-bd-person-item" data-id="{{filmDetail.directors[0].id}}" bindtap="viewPersonDetail">
-                    <image class="fd-bd-person-avatar" src="{{filmDetail.directors[0].avatars.medium}}"></image>
-                    <view class="fd-bd-person-name">{{filmDetail.directors[0].name}}</view>
-                    <view class="fd-bd-person-role">导演</view>
-                </view>
-                <block wx:for="{{filmDetail.casts}}" wx:for-item="filmDetailCastItem" wx:key="filmDetailCastItem">
-                    <view class="fd-bd-person-item" data-id="{{filmDetailCastItem.id}}" bindtap="viewPersonDetail">
-                        <image class="fd-bd-person-avatar" src="{{filmDetailCastItem.avatars.large}}"></image>
-                        <view class="fd-bd-person-name">{{filmDetailCastItem.name}}</view>
-                        <view class="fd-bd-person-role">演员</view>
-                    </view>
+        
+            <view class="fd-bd-title">短评</view>
+            <text class="shadow" wx:if="{{comments==false}}">还没有短评</text>
+            <view class="comment-container">
+                <block wx:for="{{util.limit(comments, 10)}}" wx:key="content">
+                    <v-tag tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+                        <text class="num" slot="after">{{'+'+item.nums}}</text>
+                    </v-tag>
                 </block>
-            </view> -->
+            </view>
+            
             <view class="fd-bd-title">标签</view>
-            <view class="fd-bd-tag">
+            <view class="fd-bd-tag" style="margin-bottom: 100rpx;">
                 <block wx:for="{{tag}}" wx:for-item="filmDetailTagItem" wx:key="filmDetailTagItem">
                     <view class="fd-bd-tag-item" data-tag="{{filmDetailTagItem}}" catchtap="viewFilmByTag">{{filmDetailTagItem}}</view>
                 </block>
@@ -90,5 +87,45 @@
         </view>
     </block> 
 </view>
+<view class="post-container" hidden="{{posting}}">
+    <view bind:tap="onFakePost" class="post-fake">
+        <text>输入短评</text>
+    </view>
+    <view class="like-container">
+        <v-like bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+    </view>
+</view>
+<view class="posting-container" wx:if="{{posting}}">
+    <view class="post-header">
+        <text wx:if="{{comments==true}}">仅可点击标签+1</text>
+        <text wx:else>暂无短评</text>
+        <text bind:tap="onCancel" class="cancel">取消</text>
+    </view>
+    <view class="comment-container">
+        <block wx:for="{{util.limit(comments, 3)}}" wx:key="content">
+            <v-tag bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+                <text class="num" slot="after">{{'+'+item.nums}}</text>
+            </v-tag>
+        </block>
+    </view>
+    <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
+</view>
+
+<v-mask wx:if="{{posting}}" bind:tap="onCancel"/>
 <!-- <import src="../../component/message/message.wxml"/> -->
 <!-- <template is="message" data="{{message: message}}"/> -->
+<wxs module="tool">
+    var highlight = function(index){
+        if(index==0){
+            return 'ex-tag1'
+        }
+        if(index==1){
+            return 'ex-tag2'
+        }
+        return ''
+    }
+
+    module.exports = {
+        highlight:highlight
+    }
+</wxs>

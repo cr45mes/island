@@ -5,6 +5,31 @@ from '../util/http-p.js'
 
 class MovieModel extends HTTP {
     data = null
+    postComment(id, comment) {
+      return this.request({
+          url: 'movie/add/short_comment',
+          method: 'POST',
+          data: {
+              id: id,
+              content: comment
+          }
+      })
+  }
+  getLikeStatus(bid) {
+    const p = this.request({
+        url: `movie/${bid}/favor`
+    })
+    
+
+    return p
+}
+
+
+  getComments(id) {
+    return this.request({
+        url: `movie/${id}/short_comment`
+    })
+}
     all(){
       console.log('abc')
     }

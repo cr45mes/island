@@ -7,7 +7,7 @@
     </view>
     <view class="sub-container">
         <text class="headline">短评</text>
-         <text class="shadow" wx:if="{{comments==false}}">还没有短评</text>
+        <text class="shadow" wx:if="{{comments==false}}">还没有短评</text>
         <view class="comment-container">
             <block wx:for="{{util.limit(comments, 10)}}" wx:key="content">
                 <v-tag tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
@@ -64,7 +64,7 @@
     <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
 </view>
 
-<v-mask wx:if="{{posting}}"/>
+<v-mask wx:if="{{posting}}" bind:tap="onCancel"/>
 
 <wxs module="tool">
     var highlight = function(index){

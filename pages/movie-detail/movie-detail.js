@@ -2,7 +2,11 @@
 import {
   MovieModel
 } from '../../models/movie.js'
+import {
+  LikeModel
+} from '../../models/like.js'
 const movieModel = new MovieModel()
+const likeModel = new LikeModel()
 Page({
 
   /**
@@ -57,6 +61,11 @@ Page({
       //       this.setData({filmDetail:res.data})
       //   }
       // })
+  },
+  onLike(event) {
+    console.log('ee',event)
+    const like_or_cancel = event.detail.behavior
+    likeModel.like(like_or_cancel, this.data.filmDetail.id, 101)
   },
   onFakePost(event) {
     this.setData({

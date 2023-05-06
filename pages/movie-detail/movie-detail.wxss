@@ -291,7 +291,19 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.ex-tag1 {
+  background-color: #fffbdd !important;
+}
 
+.ex-tag2 {
+  background-color: #eefbff !important;
+}
+.share-button {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+}
 .comment-container v-tag {
   margin-right: 15rpx;
   margin-bottom: 10rpx;

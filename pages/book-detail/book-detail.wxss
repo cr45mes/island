@@ -58,7 +58,12 @@
     margin-right: 15rpx;
     margin-bottom: 10rpx;
 }
-
+.share-button {
+  width: 42rpx;
+  height: 42rpx;
+  /* margin-right: 1rpx; */
+  margin-top: 30rpx;
+}
 .content {
     text-indent: 58rpx;
     font-weight: 500;

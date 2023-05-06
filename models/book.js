@@ -11,6 +11,12 @@ class BookModel extends HTTP {
         })
     }
 
+    getMyLikeBook() {
+      return this.request({
+          url: 'book/my_like_book'
+      })
+  }
+
     search(start, q){
         return this.request({
             url:'book/search?summary=1&count=10',

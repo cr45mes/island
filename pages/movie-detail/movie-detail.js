@@ -37,6 +37,7 @@ Page({
 
     Promise.all([detail, comments, likeStatus])
       .then(res => {
+        console.log(res[2])
         this.setData({
           filmDetail:res[0].moviedetail,
           tag:JSON.parse(res[0].moviedetail.genres.replace(/'/g, '"')),

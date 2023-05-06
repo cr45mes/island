@@ -10,7 +10,8 @@
     "pages/movie/movie",
     "pages/music/music",
     "pages/detail-song/detail-song",
-    "pages/movie-detail/movie-detail"
+    "pages/movie-detail/movie-detail",
+    "pages/book-like/book-like"
   ],
   "subPackages": [
     {

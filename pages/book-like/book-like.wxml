@@ -1,0 +1,6 @@
+<!--pages/book-like/book-like.wxml-->
+<view class="books-container">
+    <block wx:key="id" wx:for="{{books}}">
+        <v-book book="{{item}}" />
+    </block>
+</view>

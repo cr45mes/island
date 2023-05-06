@@ -42,7 +42,11 @@ Page({
       }
     })
   },
-
+  ontap(){
+    wx.navigateTo({
+      url: `/pages/book-like/book-like`,
+    })
+  },
   getMyFavor() {
     classicModel.getMyFavor().then(res => {
       this.setData({

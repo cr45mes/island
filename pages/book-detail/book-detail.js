@@ -45,12 +45,10 @@ Page({
         wx.hideLoading()
       })
   },
-
   onLike(event) {
     const like_or_cancel = event.detail.behavior
     likeModel.like(like_or_cancel, this.data.book.id, 400)
   },
-
   onFakePost(event) {
     this.setData({
       posting: true
@@ -65,11 +63,9 @@ Page({
 
   onPost(event) {
     const comment = event.detail.text || event.detail.value
-
     if (!comment) {
       return
     }
-
     if (comment.length > 12) {
       wx.showToast({
         title: '短评最多12个字',
@@ -77,14 +73,12 @@ Page({
       })
       return
     }
-
     bookModel.postComment(this.data.book.id, comment)
       .then(res => {
         wx.showToast({
           title: '+ 1',
           icon: "none"
         })
-
         this.data.comments.unshift({
           content: comment,
           nums: 1

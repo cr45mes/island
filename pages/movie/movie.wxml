@@ -11,7 +11,7 @@
 </view>
 <view wx:if="{{showWhat=='drama'}}" class="film">
   <block wx:key="id" wx:for="{{dramaMovie}}">
-    <v-movie movie="{{item}}"></v-movie>
+    <v-movie movie="{{item}}" suanfa="{{item}}"></v-movie>
   </block>
   
 </view>

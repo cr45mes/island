@@ -3,7 +3,7 @@ import { getSongDetail, getSongLyric } from "../services/player"
 import { parseLyric } from "../util/parse-lyric"
 
 export const audioContext = wx.createInnerAudioContext()
-
+const mMgr = wx.getBackgroundAudioManager()
 const playerStore = new HYEventStore({
   state: {
     playSongList: [],
@@ -42,6 +42,7 @@ const playerStore = new HYEventStore({
       getSongDetail(id).then(res => {
         ctx.currentSong = res.songs[0]
         ctx.durationTime = res.songs[0].dt
+        audioContext.title = res.songs[0].name
       })
 
       // 2.2.根据id获取歌词的信息
@@ -54,6 +55,7 @@ const playerStore = new HYEventStore({
       // 3.播放当前的歌曲
       audioContext.stop()
       audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
+      audioContext.title =id
       audioContext.autoplay = true
 
       // 4.监听播放的进度
@@ -109,11 +111,12 @@ const playerStore = new HYEventStore({
     },
 
     changePlayModeAction(ctx) {
+      
       // 1.计算新的模式
       let modeIndex = ctx.playModeIndex
       modeIndex = modeIndex + 1
       if (modeIndex === 3) modeIndex = 0
-
+      console.log('ctx.playModeIndex',modeIndex)
       // 设置是否是单曲循环
       if (modeIndex === 1) {
         audioContext.loop = true

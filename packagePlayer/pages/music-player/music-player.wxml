@@ -51,11 +51,12 @@
       </view>
     </view>
     <view class="controls">
-      <image
+      <!-- <image
         class="btn mode" 
         src="/packagePlayer/assets/images/player/play_{{playModeName}}.png"
         bindtap="onModeBtnTap"
-      />
+      /> -->
+      <image class="btn mode"></image>
       <image 
         class="btn prev" 
         src="/packagePlayer/assets/images/player/play_prev.png"
@@ -71,7 +72,8 @@
         src="/packagePlayer/assets/images/player/play_next.png"
         bindtap="onNextBtnTap"
       />
-      <image class="btn list" src="/packagePlayer/assets/images/player/play_music.png"/>
+      <image class="btn list"></image>
+      <!-- <image class="btn list" src="/packagePlayer/assets/images/player/play_music.png"/> -->
     </view>
   </swiper-item>
   <swiper-item>

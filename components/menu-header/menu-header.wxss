@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 450rpx;
+  height: 380rpx;
   color: #fff;
 }
 

@@ -13,6 +13,7 @@ Page({
     songInfo: {}
   },
   onLoad(options) {
+    wx.showLoading()
     // 1.确定获取数据的类型
     // type: ranking -> 榜单数据
     // type: recommend -> 推荐数据
@@ -25,12 +26,15 @@ Page({
       const key = options.key
       this.data.key = key
       rankingStore.onState(key, this.handleRanking)
+      wx.hideLoading()
     } else if (type === "recommend") {
       recommendStore.onState("recommendSongInfo", this.handleRanking)
+      wx.hideLoading()
     } else if (type === "menu") {
       const id = options.id
       this.data.id = id
       this.fetchMenuSongInfo()
+      wx.hideLoading()
     }
   },
 

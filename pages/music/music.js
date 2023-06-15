@@ -7,6 +7,7 @@ Page({
     songMenus: []
   },
   onLoad() {
+    wx.showLoading()
     this.fetchAllMenuList()
   },
   // 发送网络请求
@@ -26,5 +27,6 @@ Page({
     Promise.all(allPromises).then(res => {
       this.setData({ songMenus: res })
     })
+    wx.hideLoading()
   }
 })

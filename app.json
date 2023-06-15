@@ -49,8 +49,8 @@
       },
       {
         "pagePath": "pages/movie/movie",
-        "selectedIconPath": "/images/tab/book@highlight.png",
-        "iconPath": "/images/tab/book.png",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png",
         "text": "电影"
       },
       {

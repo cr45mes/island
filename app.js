@@ -4,8 +4,11 @@ App({
     screenWidth: 375,
     screenHeight: 667,
     statusHeight: 20,
-    contentHeight: 500
+    contentHeight: 500,
+    suanfa:{}
   },
+  onTabItemTap: function(item) {
+    console.log('选项卡被点击了：', item)},
   onLaunch: function () {
     // 1.获取设备的信息
     wx.getSystemInfo({

@@ -49,6 +49,11 @@ Page({
   },
   getMyFavor() {
     classicModel.getMyFavor().then(res => {
+      console.log(res)
+      res.forEach((item) => {
+        item.image = item.image.replace(/3000\//g, "5000/assets/")
+      });
+      // res.image = res.image.replace(/3000\//g, "5000/assets/")
       this.setData({
         classics: res
       })
